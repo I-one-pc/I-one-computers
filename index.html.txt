@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Профессиональная сборка ПК в Москве | I-one Computers</title>
+  <meta name="description" content="Профессиональная сборка игровых и рабочих компьютеров в Москве. Гарантия 1 год. Бесплатная диагностика и выезд специалиста.">
+  <style>
+    /* Базовые стили */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #1a1a1a;
+      background: #ffffff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Анимации */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+    
+    @keyframes gradientShift {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    /* Шапка с анимациями */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      z-index: 1000;
+      padding: 0.8rem 0;
+      animation: fadeInUp 0.8s ease-out;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #111;
+      text-decoration: none;
+    }
+    .logo-icon {
+      width: 45px;
+      height: 45px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-size: 1.6rem;
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+      animation: float 3s ease-in-out infinite;
+    }
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2.5rem;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: all 0.3s;
+      position: relative;
+    }
+    .nav-links a:hover {
+      color: #667eea;
+    }
+    .nav-links a:after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #667eea;
+      transition: width 0.3s;
+    }
+    .nav-links a:hover:after {
+      width: 100%;
+    }
+
+    /* Главный баннер с градиентом */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 100vh;
+      background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c);
+      background-size: 400% 400%;
+      animation: gradientShift 8s ease infinite;
+      color: white;
+      padding: 0 20px;
+      margin-top: 70px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.3);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      animation: fadeInUp 1s ease-out 0.3s both;
+    }
+    .hero-content h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      letter-spacing: -1px;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+    .hero-content p {
+      font-size: 1.4rem;
+      margin-bottom: 2.5rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Кнопки выбора услуг в герое */
+    .service-selection {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+    }
+    .service-btn {
+      padding: 12px 24px;
+      background: rgba(255,255,255,0.2);
+      color: white;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+      backdrop-filter: blur(10px);
+    }
+    .service-btn:hover, .service-btn.active {
+      background: #00ff88;
+      color: #000;
+      border-color: #00ff88;
+      transform: translateY(-2px);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 18px 40px;
+      background: #00ff88;
+      color: #000;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s;
+      box-shadow: 0 8px 25px rgba(0, 255, 136, 0.4);
+      border: none;
+      cursor: pointer;
+      font-size: 1.1rem;
+    }
+    .btn:hover {
+      background: #00cc6a;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(0, 255, 136, 0.6);
+    }
+
+    /* Доверительные элементы с анимацией */
+    .trust-badges {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+    }
+    .trust-badge {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: rgba(255,255,255,0.9);
+      font-weight: 500;
+      animation: fadeInUp 0.8s ease-out 0.6s both;
+    }
+    .trust-badge i {
+      font-size: 1.8rem;
+      color: #00ff88;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    /* Секции с анимацией появления */
+    section {
+      padding: 100px 0;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    h2 {
+      text-align: center;
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 3rem;
+      color: #111;
+      position: relative;
+    }
+    h2:after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      border-radius: 2px;
+    }
+
+    /* Услуги с улучшенными анимациями */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2.5rem;
+    }
+    .service-card {
+      background: #fafafa;
+      border-radius: 20px;
+      padding: 2.5rem;
+      text-align: center;
+      transition: all 0.4s;
+      border: 1px solid rgba(0,0,0,0.05);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .service-card:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      transform: scaleX(0);
+      transition: transform 0.3s;
+    }
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+    }
+    .service-card:hover:before {
+      transform: scaleX(1);
+    }
+    .service-card h3 {
+      margin-bottom: 1.2rem;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #111;
+    }
+    .service-card p {
+      color: #666;
+      margin-bottom: 1.8rem;
+      line-height: 1.6;
+    }
+    .price {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #667eea;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      transition: all 0.3s;
+    }
+    .service-card:hover .price {
+      transform: scale(1.1);
+    }
+
+    /* Кнопки выбора услуг в разделе контактов */
+    .contact-service-selection {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+    }
+    .contact-service-btn {
+      padding: 12px 24px;
+      background: #f8fafc;
+      color: #334155;
+      border: 2px solid #e2e8f0;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+    .contact-service-btn:hover, .contact-service-btn.active {
+      background: #667eea;
+      color: white;
+      border-color: #667eea;
+      transform: translateY(-2px);
+    }
+
+    /* Преимущества с анимациями */
+    .advantages {
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+      border-radius: 25px;
+      padding: 4rem;
+      margin-top: 4rem;
+      animation: fadeInUp 0.8s ease-out;
+    }
+    .advantages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    .advantage {
+      text-align: center;
+      padding: 2rem;
+      transition: all 0.3s;
+    }
+    .advantage:hover {
+      transform: translateY(-5px);
+    }
+    .advantage i {
+      font-size: 3rem;
+      color: #667eea;
+      margin-bottom: 1rem;
+      animation: float 3s ease-in-out infinite;
+    }
+    .advantage h4 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: #1e293b;
+    }
+    .advantage p {
+      color: #64748b;
+    }
+
+    /* Примеры работ с эффектами */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+    .portfolio-item {
+      overflow: hidden;
+      border-radius: 20px;
+      position: relative;
+      background: #000;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+      transition: all 0.4s;
+      cursor: pointer;
+    }
+    .portfolio-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+    }
+    .portfolio-item img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      transition: transform 0.6s;
+    }
+    .portfolio-item:hover img {
+      transform: scale(1.15);
+    }
+    .portfolio-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.9));
+      color: white;
+      padding: 2rem 1.5rem 1.5rem;
+      transform: translateY(100%);
+      opacity: 0;
+      transition: all 0.4s;
+    }
+    .portfolio-item:hover .portfolio-caption {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* Процесс работы с анимацией */
+    .process {
+      background: linear-gradient(135deg, #1e293b, #334155);
+      color: white;
+      border-radius: 25px;
+      padding: 4rem;
+      margin-top: 4rem;
+      animation: fadeInUp 0.8s ease-out;
+    }
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      counter-reset: step;
+    }
+    .process-step {
+      text-align: center;
+      position: relative;
+      transition: all 0.3s;
+    }
+    .process-step:hover {
+      transform: translateY(-5px);
+    }
+    .process-step:before {
+      counter-increment: step;
+      content: counter(step);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      border-radius: 50%;
+      margin: 0 auto 1rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    /* Контакты с анимациями */
+    .contact-info {
+      text-align: center;
+    }
+    .contact-buttons {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 32px;
+      background: #f5f5f7;
+      color: #333;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s;
+      border: 2px solid transparent;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    .contact-btn:hover {
+      background: #667eea;
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+      border-color: #667eea;
+    }
+    .contact-btn.whatsapp:hover {
+      background: #25D366;
+      border-color: #25D366;
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+    }
+    .contact-btn.telegram:hover {
+      background: #0088cc;
+      border-color: #0088cc;
+      box-shadow: 0 8px 25px rgba(0, 136, 204, 0.4);
+    }
+
+    /* Футер с градиентом */
+    footer {
+      background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+      color: #888;
+      text-align: center;
+      padding: 4rem 0 2rem;
+      margin-top: 2rem;
+    }
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+    .footer-section h4 {
+      color: white;
+      margin-bottom: 1rem;
+    }
+
+    /* Адаптив */
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+      h2 {
+        font-size: 2.2rem;
+      }
+      .contact-buttons, .service-selection, .contact-service-selection {
+        flex-direction: column;
+        align-items: center;
+      }
+      .contact-btn, .service-btn, .contact-service-btn {
+        width: 280px;
+        justify-content: center;
+      }
+    }
+
+    /* Скроллбар */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      border-radius: 4px;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <!-- Шапка -->
+  <header>
+    <nav class="container">
+      <a href="#" class="logo">
+        <div class="logo-icon">I</div>
+        I-one Computers
+      </a>
+      <ul class="nav-links">
+        <li><a href="#services">Услуги</a></li>
+        <li><a href="#portfolio">Примеры работ</a></li>
+        <li><a href="#process">Процесс</a></li>
+        <li><a href="#contact">Контакты</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Главный баннер -->
+  <section class="hero">
+    <div class="container hero-content">
+      <h1>Профессиональная сборка ПК</h1>
+      <p>Создаем мощные компьютеры для игр, работы и творчества. Индивидуальный подход, гарантия 1 год и пожизненная техническая поддержка.</p>
+      
+      <div class="service-selection">
+        <a href="#contact" class="service-btn active" data-service="assembly">Сборка ПК</a>
+        <a href="#contact" class="service-btn" data-service="upgrade">Апгрейд</a>
+        <a href="#contact" class="service-btn" data-service="service">Обслуживание</a>
+        <a href="#contact" class="service-btn" data-service="repair">Ремонт</a>
+      </div>
+      
+      <a href="#contact" class="btn">Получить консультацию</a>
+      
+      <div class="trust-badges">
+        <div class="trust-badge">
+          <i class="fas fa-shield-alt"></i>
+          <span>Гарантия 1 год</span>
+        </div>
+        <div class="trust-badge">
+          <i class="fas fa-medal"></i>
+          <span>Более 200 сборок</span>
+        </div>
+        <div class="trust-badge">
+          <i class="fas fa-tools"></i>
+          <span>Бесплатная диагностика</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Услуги -->
+  <section id="services" class="container">
+    <h2>Наши услуги</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>Сборка ПК под ключ</h3>
+        <p>Полный цикл от подбора комплектующих до финальной настройки системы. Оптимальные решения под ваш бюджет и задачи.</p>
+        <p class="price">от 5 000 ₽</p>
+      </div>
+      <div class="service-card">
+        <h3>Апгрейд компьютера</h3>
+        <p>Модернизация существующей системы. Проанализируем текущую конфигурацию и предложим оптимальные пути улучшения.</p>
+        <p class="price">от 2 000 ₽</p>
+      </div>
+      <div class="service-card">
+        <h3>Обслуживание и ремонт</h3>
+        <p>Профилактика, чистка, диагностика и ремонт. Поддержим вашу технику в идеальном состоянии.</p>
+        <p class="price">от 1 000 ₽</p>
+      </div>
+    </div>
+
+    <div class="advantages">
+      <h3 style="text-align: center; margin-bottom: 3rem; color: #1e293b;">Почему выбирают нас</h3>
+      <div class="advantages-grid">
+        <div class="advantage">
+          <i class="fas fa-cog"></i>
+          <h4>Индивидуальный подход</h4>
+          <p>Каждый компьютер собирается с учетом конкретных задач и предпочтений клиента</p>
+        </div>
+        <div class="advantage">
+          <i class="fas fa-check-circle"></i>
+          <h4>Качество сборки</h4>
+          <p>Идеальный кабельный менеджмент, тестирование всех компонентов, стресс-тесты</p>
+        </div>
+        <div class="advantage">
+          <i class="fas fa-headset"></i>
+          <h4>Поддержка 24/7</h4>
+          <p>Круглосуточная техническая поддержка и консультации по любым вопросам</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Примеры работ -->
+  <section id="portfolio" class="container">
+    <h2>Примеры работ</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <img src="https://images.unsplash.com/photo-1587202372634-32705e3bf49c?w=500&h=350&fit=crop" alt="Игровой ПК премиум класса">
+        <div class="portfolio-caption">
+          <h3>Игровой ПК "Phantom"</h3>
+          <p>RTX 4080, Intel i9-14900K, жидкостное охлаждение</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=500&h=350&fit=crop" alt="Рабочая станция для дизайна">
+        <div class="portfolio-caption">
+          <h3>Рабочая станция "ProDesign"</h3>
+          <p>RTX 4090, Ryzen 9 7950X, 128GB RAM</p>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <img src="https://images.unsplash.com/photo-1562408590-e32931084e23?w=500&h=350&fit=crop" alt="Компактная сборка">
+        <div class="portfolio-caption">
+          <h3>Компактный офисный ПК</h3>
+          <p>Mini-ITX, бесшумное охлаждение</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Процесс работы -->
+  <section id="process" class="container">
+    <div class="process">
+      <h2 style="color: white; text-align: center;">Как мы работаем</h2>
+      <div class="process-steps">
+        <div class="process-step">
+          <h4>Консультация</h4>
+          <p>Обсуждаем задачи, бюджет и предпочтения</p>
+        </div>
+        <div class="process-step">
+          <h4>Подбор компонентов</h4>
+          <p>Составляем оптимальную конфигурацию</p>
+        </div>
+        <div class="process-step">
+          <h4>Профессиональная сборка</h4>
+          <p>Аккуратная сборка и тестирование</p>
+        </div>
+        <div class="process-step">
+          <h4>Гарантия и поддержка</h4>
+          <p>Передаем готовую систему с гарантией 1 год</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Контакты -->
+  <section id="contact" class="container">
+    <h2>Свяжитесь с нами</h2>
+    <div class="contact-info">
+      <p style="color: #64748b; font-size: 1.2rem; margin-bottom: 1rem;">Выберите нужную услугу:</p>
+      
+      <div class="contact-service-selection">
+        <a href="https://wa.me/79648333321?text=Здравствуйте! Хочу заказать сборку ПК" class="contact-service-btn active" data-service="assembly">
+          <i class="fas fa-desktop"></i> Сборка ПК
+        </a>
+        <a href="https://wa.me/79648333321?text=Здравствуйте! Интересует апгрейд компьютера" class="contact-service-btn" data-service="upgrade">
+          <i class="fas fa-sync-alt"></i> Апгрейд
+        </a>
+        <a href="https://wa.me/79648333321?text=Здравствуйте! Нужно обслуживание компьютера" class="contact-service-btn" data-service="service">
+          <i class="fas fa-tools"></i> Обслуживание
+        </a>
+        <a href="https://wa.me/79648333321?text=Здравствуйте! Требуется ремонт компьютера" class="contact-service-btn" data-service="repair">
+          <i class="fas fa-wrench"></i> Ремонт
+        </a>
+      </div>
+
+      <p style="color: #64748b; font-size: 1.1rem; margin: 2rem 0;">Или выберите удобный способ связи:</p>
+      
+      <div class="contact-buttons">
+        <a href="https://wa.me/79648333321" class="contact-btn whatsapp">
+          <i class="fab fa-whatsapp"></i>
+          WhatsApp
+        </a>
+        <a href="https://t.me/79648333321" class="contact-btn telegram">
+          <i class="fab fa-telegram"></i>
+          Telegram
+        </a>
+        <a href="tel:+79648333321" class="contact-btn">
+          <i class="fas fa-phone"></i>
+          Позвонить сейчас
+        </a>
+      </div>
+      
+      <div style="margin-top: 3rem; color: #64748b;">
+        <p><i class="fas fa-map-marker-alt"></i> Москва, метро Киевская</p>
+        <p><i class="fas fa-clock"></i> Пн-Вс: 10:00 - 20:00</p>
+        <p><i class="fas fa-shield-alt"></i> Гарантия на все работы - 1 год</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Футер -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>I-one Computers</h4>
+          <p>Профессиональная сборка компьютеров в Москве с 2020 года</p>
+        </div>
+        <div class="footer-section">
+          <h4>Услуги</h4>
+          <p>Сборка ПК под ключ</p>
+          <p>Апгрейд компьютеров</p>
+          <p>Обслуживание и ремонт</p>
+        </div>
+        <div class="footer-section">
+          <h4>Гарантия</h4>
+          <p>1 год на все работы</p>
+          <p>Бесплатная диагностика</p>
+          <p>Техническая поддержка</p>
+        </div>
+      </div>
+      <div style="text-align: center; padding-top: 2rem; border-top: 1px solid #334155;">
+        <p>© 2024 I-one Computers. Все права защищены. Гарантия 1 год на все работы.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Плавная прокрутка
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Анимация появления секций при скролле
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('section').forEach(section => {
+      observer.observe(section);
+    });
+
+    // Параллакс эффект для героя
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      const hero = document.querySelector('.hero');
+      hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+    });
+
+    // Анимация цифр при наведении на карточки услуг
+    document.querySelectorAll('.service-card').forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        const price = this.querySelector('.price');
+        price.style.transform = 'scale(1.1)';
+      });
+      
+      card.addEventListener('mouseleave', function() {
+        const price = this.querySelector('.price');
+        price.style.transform = 'scale(1)';
+      });
+    });
+
+    // Управление кнопками выбора услуг
+    document.querySelectorAll('.service-btn, .contact-service-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        // Убираем активный класс у всех кнопок в той же группе
+        const parent = this.parentElement;
+        parent.querySelectorAll('.active').forEach(activeBtn => {
+          activeBtn.classList.remove('active');
+        });
+        // Добавляем активный класс к текущей кнопке
+        this.classList.add('active');
+      });
+    });
+
+    // Динамическое обновление года
+    document.querySelector('footer p').innerHTML = `© ${new Date().getFullYear()} I-one Computers. Все права защищены. Гарантия 1 год на все работы.`;
+  </script>
+</body>
+</html>
